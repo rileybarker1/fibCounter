@@ -1,7 +1,7 @@
 import fib from './fibonacci.js';
 let table = document.querySelector('#table');
 
-let dim = 10;
+let dim = 5;
 let fib_n = 0;
 let currRow_n = 0;
 
@@ -13,10 +13,11 @@ function newRow() {
 }
 
 function nextNum() {
-    if (fib_n % 10 === 0) { newRow() }
-    let col = fib_n % 10;
+    if (fib_n % dim === 0) { newRow() }
+    let col = fib_n % dim;
     let newSlot = document.createElement('td');
     newSlot.setAttribute('width', '100');
+    newSlot.setAttribute('style', 'font-size:32px');
     newSlot.innerHTML = fib(fib_n);
     document.getElementById(`${currRow_n-1}`).appendChild(newSlot);
     fib_n++;
